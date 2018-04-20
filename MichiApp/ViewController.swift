@@ -17,7 +17,6 @@ struct Theme {
 }
 
 extension Theme {
-    
     static func loadThemes() -> [Theme] {
         let t1 = Theme(xEmoji: "🙉", oEmoji: "🙈", emptyEmoji: "🐵", color: .blue)
         let t2 = Theme(xEmoji: "🐮", oEmoji: "🐷", emptyEmoji: "🐸", color: .green)
@@ -26,7 +25,6 @@ extension Theme {
         let t5 = Theme(xEmoji: "⚽️", oEmoji: "🏀", emptyEmoji: "🥅", color: .purple)
         return [t1, t2, t3, t4, t5]
     }
-    
 }
 
 class ViewController: UIViewController {
@@ -63,7 +61,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        resetButton.layer.cornerRadius = resetButton.frame.height / 2
+        resetButton.layer.cornerRadius = resetButton.frame.height / 2.5
         resetButton.layer.masksToBounds = true
     }
     
@@ -88,7 +86,6 @@ class ViewController: UIViewController {
         } else {
             boton.setTitle(selectedTheme.oEmoji, for: .normal)
         }
-        
     }
     
     func refrescarTablero(){
@@ -108,6 +105,5 @@ class ViewController: UIViewController {
         count = 0
         self.selectedTheme = themes[Int(arc4random_uniform(4))]
     }
-    
 }
 
