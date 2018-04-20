@@ -8,34 +8,34 @@
 
 import Foundation
 
-class MichiManager{
+class MichiManager {
     var tablero: [[Int]]
     var jugadorTurno: Int
     let size = 3
     
-    init(){
+    init() {
         jugadorTurno = 0
         tablero = [[Int]]()
         inicializarTablero()
     }
     
-    func inicializarTablero(){
-        tablero = Array(repeating: Array(repeating: -1, count: 3), count: 3)
+    func inicializarTablero() {
+        tablero = Array(repeating: Array(repeating: -1, count: size), count: size)
     }
     
-    func realizarJugada(posicion: Int){
-        let (x, y) = transaltePos(posicion: posicion)
+    func realizarJugada(posicion: Int) {
+        let (x, y) = translate(position: posicion)
         if tablero[x][y] == -1 {
             tablero[x][y] = jugadorTurno
         }
     }
     
-    func transaltePos(posicion: Int) -> (x: Int, y: Int) {
-        let x = (posicion/size), y = (posicion%size)
+    func translate(position: Int) -> (x: Int, y: Int) {
+        let x = (position/size), y = (position%size)
         return (x, y)
     }
     
-    func verificarGanador(posicion: Int) -> Int{
+    func verificarGanador(posicion: Int) -> Int {
         if checkHorizontalVertical(posicion: posicion) || checkDiagonal() {
             return jugadorTurno
         } else {
@@ -52,7 +52,7 @@ class MichiManager{
     }
     
     func checkHorizontalVertical(posicion pos: Int) -> Bool {
-        let (x, y) = transaltePos(posicion: pos)
+        let (x, y) = translate(position: pos)
         var finished = true;
         for i in 0...(size-1) {
             if tablero[x][0+i] != jugadorTurno {
