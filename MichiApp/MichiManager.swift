@@ -27,11 +27,6 @@ class MichiManager{
         let (x, y) = transaltePos(posicion: posicion)
         if tablero[x][y] == -1 {
             tablero[x][y] = jugadorTurno
-            if jugadorTurno == 0 {
-                jugadorTurno = 1
-            } else {
-                jugadorTurno = 0
-            }
         }
     }
     
@@ -45,6 +40,14 @@ class MichiManager{
             return jugadorTurno
         } else {
             return -1
+        }
+    }
+    
+    func cambiarJugador() {
+        if jugadorTurno == 0 {
+            jugadorTurno = 1
+        } else {
+            jugadorTurno = 0
         }
     }
     
@@ -69,25 +72,28 @@ class MichiManager{
             let middle = size/2
             var finished = true;
             if tablero[middle][middle] != jugadorTurno { return false }
-            var limitsPos = [Int](), limitsNeg = [Int]()
-            for i in 1...size-middle {
-                limitsPos.append(i)
-                limitsNeg.append(-i)
+            var direction = [Int]()
+            for i in 1...size-middle-1 {
+                direction.append(i)
+                direction.append(-i)
             }
-            for i in limitsPos {
+            for i in direction {
                 if tablero[middle+i][middle+i] != jugadorTurno {
                     finished = false
                     break
                 }
             }
             if finished { return true }
-            for i in limitsNeg {
-                if tablero[middle+i][middle+i] != jugadorTurno { return false }
+            for i in direction {
+                if tablero[middle+i][middle-i] != jugadorTurno { return false }
             }
         }
         return true
     }
-    
-    
 }
 
+/*
+00 01 02
+10 11 12
+20 21 22
+*/

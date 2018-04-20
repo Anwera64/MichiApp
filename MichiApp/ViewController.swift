@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var butCasillas: [UIButton]!
-    @IBOutlet weak var butCasilla: UIButton!
     @IBOutlet weak var labMensaje: UILabel!
     
     var michiManager: MichiManager = MichiManager()
@@ -30,7 +29,9 @@ class ViewController: UIViewController {
             michiManager.realizarJugada(posicion: indiceSeleccionado)
             refrescarTablero()
             if michiManager.verificarGanador(posicion: indiceSeleccionado) != -1{
-                labMensaje.text = "Ganó el jugador \(michiManager.jugadorTurno) y se jugaron \(contador) intentos"
+                labMensaje.text = "Ganó el jugador \(michiManager.jugadorTurno+1) y se jugaron \(contador) intentos"
+            } else {
+                michiManager.cambiarJugador()
             }
         }
     }
@@ -53,6 +54,13 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func reset(_ sender: UIButton) {
+        for casilla in butCasillas {
+            casilla.setTitle("🐶", for: UIControlState.normal)
+        }
+        michiManager.inicializarTablero()
+        contador = 0
+    }
     
 }
 
