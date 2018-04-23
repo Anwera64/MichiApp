@@ -58,8 +58,8 @@
 			children = (
 				032EACD02073B9BE00578560 /* SupportingFiles */,
 				032EACC02073B75500578560 /* ViewController.swift */,
-				032EACC22073B75500578560 /* Main.storyboard */,
 				0317FF52207CE8D800308087 /* MichiManager.swift */,
+				032EACC22073B75500578560 /* Main.storyboard */,
 				032EACCA2073B75500578560 /* Info.plist */,
 			);
 			path = MichiApp;

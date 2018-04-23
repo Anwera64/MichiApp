@@ -61,6 +61,7 @@ class MichiManager {
             }
         }
         if finished { return true }
+        
         for i in 0...(size-1) {
             if tablero[0+i][y] != jugadorTurno { return false }
         }
@@ -68,23 +69,18 @@ class MichiManager {
     }
     
     func checkDiagonal() -> Bool {
-        let middle = size/2
         var finished = true;
-        if tablero[middle][middle] != jugadorTurno { return false }
-        var direction = [Int]()
-        for i in 1...size-middle-1 {
-            direction.append(i)
-            direction.append(-i)
-        }
-        for i in direction {
-            if tablero[middle+i][middle+i] != jugadorTurno {
+        for i in 0...(size-1) {
+            if (tablero[i][i] != jugadorTurno) {
                 finished = false
-                break
             }
         }
-        if finished { return true }
-        for i in direction {
-            if tablero[middle+i][middle-i] != jugadorTurno { return false }
+        if (finished) { return true }
+        let y = size - 1
+        for i in 0...(size - 1) {
+            if (tablero[i][y-i] != jugadorTurno) {
+                return false
+            }
         }
         return true
     }
