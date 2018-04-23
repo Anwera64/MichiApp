@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     var michiManager: MichiManager!
-    
+    var endGame: Bool = false
     var count: Int = 0 {
         didSet{
             labMensaje.text = "Número de intentos: \(count)"
@@ -66,7 +66,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func seleccionarCasiilla(_ sender: UIButton) {
-        
+        if endGame {
+            return
+        }
         count += 1
         
         if let selectedIndex = butCasillas.index(of: sender){
@@ -74,6 +76,7 @@ class ViewController: UIViewController {
             refrescarTablero()
             if michiManager.verificarGanador(posicion: selectedIndex) != -1{
                 labMensaje.text = "Ganó el jugador \(michiManager.jugadorTurno+1) y se jugaron \(count) intentos"
+                endGame = true
             } else {
                 michiManager.cambiarJugador()
             }
@@ -98,6 +101,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reset(_ sender: UIButton) {
+        endGame = false
         for casilla in butCasillas {
             casilla.setTitle("🐶", for: .normal)
         }

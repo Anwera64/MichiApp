@@ -24,6 +24,7 @@
 		032EACC52073B75500578560 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		032EACC82073B75500578560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		032EACCA2073B75500578560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A0AB8FA208E7F0B00F70F75 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../../MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			children = (
 				032EACD02073B9BE00578560 /* SupportingFiles */,
 				032EACC02073B75500578560 /* ViewController.swift */,
+				3A0AB8FA208E7F0B00F70F75 /* MyPlayground.playground */,
 				0317FF52207CE8D800308087 /* MichiManager.swift */,
 				032EACC22073B75500578560 /* Main.storyboard */,
 				032EACCA2073B75500578560 /* Info.plist */,
